@@ -17,7 +17,7 @@ class BookItemView extends GetView {
     final author = book.author;
     final price = book.price;
     final id = book.id;
-    final asset = 'assets/$id.epub';
+    final asset = book.asset;
     final image = book.image;
 
     return LayoutBuilder(

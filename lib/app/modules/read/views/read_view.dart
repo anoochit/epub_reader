@@ -18,7 +18,7 @@ class ReadView extends GetView<ReadController> {
       body: Center(
         child: Text(
           controller.asset.value,
-          style: TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 20),
         ),
       ),
     );
