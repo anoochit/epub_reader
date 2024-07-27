@@ -17,9 +17,9 @@ class LibraryBodyView extends GetView {
         backgroundColor: AppTheme(context).appBarBackgroundColor,
       ),
       body: GridView.builder(
-        padding: EdgeInsets.all(8.0),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+        padding: const EdgeInsets.all(8.0),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: AppTheme(context).getCrossAxisCount(),
           mainAxisSpacing: 4.0,
           crossAxisSpacing: 4.0,
           childAspectRatio: 2 / 3,

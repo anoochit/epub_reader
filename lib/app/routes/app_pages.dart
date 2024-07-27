@@ -24,6 +24,7 @@ class AppPages {
       name: _Paths.READ,
       page: () => const ReadView(),
       binding: ReadBinding(),
+      transition: Transition.rightToLeft,
     ),
   ];
 }

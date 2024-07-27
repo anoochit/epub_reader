@@ -28,23 +28,28 @@ class HomeView extends GetView<HomeController> {
           onDestinationSelected: (value) => controller.navIndex.value = value,
           destinations: const [
             NavigationDestination(
-              icon: Icon(Icons.book),
+              selectedIcon: Icon(Icons.book),
+              icon: Icon(Icons.book_outlined),
               label: 'Library',
             ),
             NavigationDestination(
-              icon: Icon(Icons.store_mall_directory),
+              selectedIcon: Icon(Icons.store_mall_directory),
+              icon: Icon(Icons.store_mall_directory_outlined),
               label: 'Store',
             ),
             NavigationDestination(
-              icon: Icon(Icons.star),
+              selectedIcon: Icon(Icons.star),
+              icon: Icon(Icons.star_outline),
               label: 'Wishlist',
             ),
             NavigationDestination(
-              icon: Icon(Icons.settings),
+              selectedIcon: Icon(Icons.settings),
+              icon: Icon(Icons.settings_outlined),
               label: 'Settings',
             ),
             NavigationDestination(
-              icon: Icon(Icons.notifications),
+              selectedIcon: Icon(Icons.notifications),
+              icon: Icon(Icons.notifications_outlined),
               label: 'Notifications',
             ),
           ],

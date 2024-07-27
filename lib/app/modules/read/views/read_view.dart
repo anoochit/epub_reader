@@ -9,18 +9,15 @@ class ReadView extends GetView<ReadController> {
   const ReadView({super.key});
   @override
   Widget build(BuildContext context) {
-    String title = Get.parameters['title'] ?? '';
-    String? asset = Get.parameters['asset'];
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Obx(() => Text(controller.title.value)),
         centerTitle: false,
         backgroundColor: AppTheme(context).appBarBackgroundColor,
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'ReadView is working',
+          controller.asset.value,
           style: TextStyle(fontSize: 20),
         ),
       ),
