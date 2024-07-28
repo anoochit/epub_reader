@@ -12,7 +12,6 @@ class ReadController extends GetxController {
 
   @override
   void onInit() {
-    super.onInit();
     log('onInit');
     title.value = Get.parameters['title'] ?? '';
     asset.value = Get.parameters['asset'] ?? '';
@@ -20,5 +19,7 @@ class ReadController extends GetxController {
     epubController = EpubController(
       document: EpubDocument.openAsset(asset.value),
     );
+
+    super.onInit();
   }
 }

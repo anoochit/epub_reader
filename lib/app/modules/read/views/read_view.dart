@@ -19,6 +19,7 @@ class ReadView extends GetView<ReadController> {
       body: Obx(
         () => EpubView(
           controller: controller.epubController,
+          onDocumentError: (error) => Text('$error'),
         ),
       ),
       endDrawer: Drawer(
