@@ -12,8 +12,8 @@ List<Book> libraryData = [
   ),
   Book(
     id: 'pg345',
-    title: 'Dracula',
-    author: 'Bram Stoker',
+    title: 'โฮลวีตรีวิว',
+    author: 'นายรีวิว',
     image: 'assets/pg345_cover.jpg',
     price: 195.0,
     asset: 'assets/pg111.epub',

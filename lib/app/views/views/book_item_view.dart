@@ -1,5 +1,4 @@
 import 'package:epub_reader/app/data/models/book_model.dart';
-import 'package:epub_reader/app/modules/read/controllers/read_controller.dart';
 import 'package:epub_reader/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +15,6 @@ class BookItemView extends GetView {
     final title = book.title;
     final author = book.author;
     final price = book.price;
-    // final id = book.id;
     final asset = book.asset;
     final image = book.image;
 
@@ -26,9 +24,6 @@ class BookItemView extends GetView {
           InkWell(
             onTap: (readButton)
                 ? () {
-                    // ReadController readController = Get.find<ReadController>();
-                    // readController.title.value = title;
-                    // readController.asset.value = asset;
                     Get.toNamed(
                       Routes.READ,
                       parameters: {"title": title, "asset": asset},
