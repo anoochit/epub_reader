@@ -1,6 +1,7 @@
 import 'package:epub_view/epub_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../theme/app_theme.dart';
 import '../controllers/read_controller.dart';
