@@ -22,13 +22,12 @@ class ReadView extends GetView<ReadController> {
           controller: controller.epubController,
           onDocumentError: (error) => Text('$error'),
           builders: EpubViewBuilders<DefaultBuilderOptions>(
-            chapterDividerBuilder: (value) => Container(
-              padding: const EdgeInsets.all(0.0),
-            ),
+            chapterDividerBuilder: (value) => Container(),
             options: DefaultBuilderOptions(
-              textStyle: GoogleFonts.notoSans(
-                height: 2.5,
+              textStyle: GoogleFonts.sarabun(
                 fontSize: 18.0,
+                fontWeight: FontWeight.w300,
+                height: 2.5,
               ),
             ),
           ),
