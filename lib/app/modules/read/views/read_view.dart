@@ -14,8 +14,8 @@ class ReadView extends GetView<ReadController> {
     return Scaffold(
       appBar: AppBar(
         title: Obx(() => Text(controller.title.value)),
-        centerTitle: false,
         backgroundColor: AppTheme(context).appBarBackgroundColor,
+        centerTitle: false,
       ),
       body: Obx(
         () => EpubView(
@@ -26,14 +26,13 @@ class ReadView extends GetView<ReadController> {
             options: DefaultBuilderOptions(
               textStyle: GoogleFonts.sarabun(
                 fontSize: 18.0,
-                fontWeight: FontWeight.w300,
                 height: 2.5,
               ),
             ),
           ),
         ),
       ),
-      endDrawer: Drawer(
+      drawer: Drawer(
         child: GetBuilder<ReadController>(
           builder: (controller) => EpubViewTableOfContents(
             controller: controller.epubController,

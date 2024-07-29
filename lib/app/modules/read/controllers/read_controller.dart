@@ -7,7 +7,6 @@ class ReadController extends GetxController {
   //
   RxString title = ''.obs;
   RxString asset = ''.obs;
-
   late EpubController epubController;
 
   @override
