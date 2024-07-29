@@ -21,20 +21,32 @@ class ReadView extends GetView<ReadController> {
         () => EpubView(
           controller: controller.epubController,
           onDocumentError: (error) => Text('$error'),
-          // builders: EpubViewBuilders<DefaultBuilderOptions>(
-          //   options: DefaultBuilderOptions(
-          //     textStyle: GoogleFonts.sarabun(
-          //       height: 2.0,
-          //       fontSize: 18.0,
-          //     ),
-          //   ),
-          // ),
+          builders: EpubViewBuilders<DefaultBuilderOptions>(
+            chapterDividerBuilder: (value) => Container(
+              padding: const EdgeInsets.all(0.0),
+            ),
+            options: DefaultBuilderOptions(
+              textStyle: GoogleFonts.notoSans(
+                height: 2.5,
+                fontSize: 18.0,
+              ),
+            ),
+          ),
         ),
       ),
       endDrawer: Drawer(
         child: GetBuilder<ReadController>(
           builder: (controller) => EpubViewTableOfContents(
             controller: controller.epubController,
+            itemBuilder: (context, index, chapter, itemCount) {
+              return ListTile(
+                title: Text(chapter.title!),
+                onTap: () {
+                  controller.epubController.scrollTo(index: chapter.startIndex);
+                  Get.back();
+                },
+              );
+            },
           ),
         ),
       ),
