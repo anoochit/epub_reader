@@ -9,6 +9,12 @@ class ReadController extends GetxController {
   RxString asset = ''.obs;
   late EpubController epubController;
 
+  RxDouble fontSize = 1.0.obs;
+  RxDouble lineHeight = 1.75.obs;
+  RxInt fontFace = 0.obs;
+  RxInt viewingTheme = 0.obs;
+  RxBool showSettings = false.obs;
+
   @override
   void onInit() {
     log('onInit');

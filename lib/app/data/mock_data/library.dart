@@ -14,7 +14,7 @@ List<Book> libraryData = [
     id: 'pg345',
     title: 'โฮลวีตรีวิว',
     author: 'นายรีวิว',
-    image: 'assets/pg345_cover.jpg',
+    image: 'assets/pg111_cover.jpg',
     price: 195.0,
     asset: 'assets/pg111.epub',
   ),
