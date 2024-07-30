@@ -78,7 +78,7 @@ class ReadView extends GetView<ReadController> {
                         boxShadow: [
                           BoxShadow(
                             color: Theme.of(context).colorScheme.primary,
-                            blurRadius: 4.0,
+                            blurRadius: 3.0,
                           ),
                         ],
                       ),
@@ -95,7 +95,7 @@ class ReadView extends GetView<ReadController> {
                                 children:
                                     List.generate(listTypeFace.length, (index) {
                                   return FontButton(
-                                    text: 'ป',
+                                    text: 'ก',
                                     style: listTypeFace[index].style,
                                     label: listTypeFace[index].label,
                                     isSelected:
@@ -360,10 +360,7 @@ class FontButton extends StatelessWidget {
                     color: Colors.grey,
                   )),
               child: Center(
-                child: Text(
-                  text,
-                  style: style,
-                ),
+                child: Text(text, style: style),
               ),
             ),
           ),
@@ -385,23 +382,23 @@ class TypeFace {
 final listTypeFace = [
   TypeFace(
     label: 'sarabun',
-    style: GoogleFonts.sarabun(fontSize: 22.0),
+    style: GoogleFonts.sarabun(fontSize: 24.0),
   ),
   TypeFace(
     label: 'athiti',
-    style: GoogleFonts.athiti(fontSize: 22.0),
+    style: GoogleFonts.athiti(fontSize: 24.0),
   ),
   TypeFace(
-    label: 'chakrapetch',
-    style: GoogleFonts.chakraPetch(fontSize: 22.0),
+    label: 'thasadith',
+    style: GoogleFonts.thasadith(fontSize: 24.0),
   ),
   TypeFace(
     label: 'baiJamjuree',
-    style: GoogleFonts.baiJamjuree(fontSize: 22.0),
+    style: GoogleFonts.baiJamjuree(fontSize: 24.0),
   ),
   TypeFace(
-    label: 'maitree',
-    style: GoogleFonts.maitree(fontSize: 22.0),
+    label: 'taviraj',
+    style: GoogleFonts.taviraj(fontSize: 24.0),
   ),
 ];
 
