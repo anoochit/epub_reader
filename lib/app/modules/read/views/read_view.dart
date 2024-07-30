@@ -66,148 +66,152 @@ class ReadView extends GetView<ReadController> {
                 right: 0,
                 child: AnimatedOpacity(
                   opacity: (controller.showSettings.value) ? 1.0 : 0.0,
-                  duration: const Duration(milliseconds: 350),
-                  child: Container(
-                    width: 220,
-                    height: 244,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                      borderRadius: BorderRadius.circular(4.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Theme.of(context).colorScheme.primary,
-                          blurRadius: 4.0,
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const SizedBox(height: 8.0),
-                        // font
-                        SizedBox(
-                          height: 64,
-                          child: Expanded(
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children:
-                                  List.generate(listTypeFace.length, (index) {
-                                return FontButton(
-                                  text: 'ป',
-                                  style: listTypeFace[index].style,
-                                  label: listTypeFace[index].label,
-                                  isSelected:
-                                      (controller.fontFace.value == index),
-                                  onTap: () {
-                                    //
-                                    controller.fontFace.value = index;
-                                  },
-                                );
-                              }),
-                            ),
+                  duration: const Duration(milliseconds: 250),
+                  child: Visibility(
+                    visible: (controller.showSettings.value),
+                    child: Container(
+                      width: 220,
+                      height: 244,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.primaryContainer,
+                        borderRadius: BorderRadius.circular(4.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Theme.of(context).colorScheme.primary,
+                            blurRadius: 4.0,
                           ),
-                        ),
-                        // font size
-                        LayoutBuilder(builder: (context, constraints) {
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              FontSizeButton(
-                                width: (constraints.maxWidth / 2.0) - 8,
-                                height: 40.0,
-                                icon: const Icon(Icons.text_decrease),
-                                backgroundColor: Colors.white,
-                                onTap: () {
-                                  //
-                                  if (controller.fontSize.value > 0.8) {
-                                    controller.fontSize.value =
-                                        controller.fontSize.value - 0.2;
-                                  }
-                                },
-                              ),
-                              FontSizeButton(
-                                width: (constraints.maxWidth / 2.0) - 8,
-                                height: 40.0,
-                                icon: const Icon(Icons.text_increase),
-                                backgroundColor: Colors.white,
-                                onTap: () {
-                                  //
-                                  controller.fontSize.value =
-                                      controller.fontSize.value + 0.2;
-                                },
-                              ),
-                            ],
-                          );
-                        }),
-
-                        // line height
-                        LayoutBuilder(builder: (context, constraints) {
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              FontSizeButton(
-                                width: (constraints.maxWidth / 2.0) - 8,
-                                height: 40.0,
-                                icon: const Icon(Icons.density_small),
-                                backgroundColor: Colors.white,
-                                onTap: () {
-                                  //
-                                  if (controller.lineHeight.value > 1.75) {
-                                    controller.lineHeight.value =
-                                        controller.lineHeight.value - 0.5;
-                                  }
-                                },
-                              ),
-                              FontSizeButton(
-                                width: (constraints.maxWidth / 2.0) - 8,
-                                height: 40.0,
-                                icon: const Icon(Icons.density_large),
-                                backgroundColor: Colors.white,
-                                onTap: () {
-                                  //
-                                  controller.lineHeight.value =
-                                      controller.lineHeight.value + 0.5;
-                                },
-                              )
-                            ],
-                          );
-                        }),
-
-                        // themes
-                        LayoutBuilder(builder: (context, constraints) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 4.0),
-                                child: Text('Viewing theme'),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: List.generate(viewingThemes.length,
-                                    (index) {
-                                  return Obx(
-                                    () => ViewingThemeButton(
-                                      width: (constraints.maxWidth / 3.0) - 8,
-                                      height: 40.0,
-                                      color: viewingThemes[index].color,
-                                      backgroundColor:
-                                          viewingThemes[index].backgroundColor,
-                                      isSelected:
-                                          (controller.viewingTheme.value ==
-                                              index),
-                                      onTap: () {
-                                        controller.viewingTheme.value = index;
-                                      },
-                                    ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const SizedBox(height: 8.0),
+                          // font
+                          SizedBox(
+                            height: 64,
+                            child: Expanded(
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children:
+                                    List.generate(listTypeFace.length, (index) {
+                                  return FontButton(
+                                    text: 'ป',
+                                    style: listTypeFace[index].style,
+                                    label: listTypeFace[index].label,
+                                    isSelected:
+                                        (controller.fontFace.value == index),
+                                    onTap: () {
+                                      //
+                                      controller.fontFace.value = index;
+                                    },
                                   );
                                 }),
                               ),
-                            ],
-                          );
-                        }),
-                      ],
+                            ),
+                          ),
+                          // font size
+                          LayoutBuilder(builder: (context, constraints) {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                FontSizeButton(
+                                  width: (constraints.maxWidth / 2.0) - 8,
+                                  height: 40.0,
+                                  icon: const Icon(Icons.text_decrease),
+                                  backgroundColor: Colors.white,
+                                  onTap: () {
+                                    //
+                                    if (controller.fontSize.value > 0.8) {
+                                      controller.fontSize.value =
+                                          controller.fontSize.value - 0.2;
+                                    }
+                                  },
+                                ),
+                                FontSizeButton(
+                                  width: (constraints.maxWidth / 2.0) - 8,
+                                  height: 40.0,
+                                  icon: const Icon(Icons.text_increase),
+                                  backgroundColor: Colors.white,
+                                  onTap: () {
+                                    //
+                                    controller.fontSize.value =
+                                        controller.fontSize.value + 0.2;
+                                  },
+                                ),
+                              ],
+                            );
+                          }),
+
+                          // line height
+                          LayoutBuilder(builder: (context, constraints) {
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                FontSizeButton(
+                                  width: (constraints.maxWidth / 2.0) - 8,
+                                  height: 40.0,
+                                  icon: const Icon(Icons.density_small),
+                                  backgroundColor: Colors.white,
+                                  onTap: () {
+                                    //
+                                    if (controller.lineHeight.value > 1.75) {
+                                      controller.lineHeight.value =
+                                          controller.lineHeight.value - 0.5;
+                                    }
+                                  },
+                                ),
+                                FontSizeButton(
+                                  width: (constraints.maxWidth / 2.0) - 8,
+                                  height: 40.0,
+                                  icon: const Icon(Icons.density_large),
+                                  backgroundColor: Colors.white,
+                                  onTap: () {
+                                    //
+                                    controller.lineHeight.value =
+                                        controller.lineHeight.value + 0.5;
+                                  },
+                                )
+                              ],
+                            );
+                          }),
+
+                          // themes
+                          LayoutBuilder(builder: (context, constraints) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding:
+                                      EdgeInsets.symmetric(horizontal: 4.0),
+                                  child: Text('Viewing theme'),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: List.generate(viewingThemes.length,
+                                      (index) {
+                                    return Obx(
+                                      () => ViewingThemeButton(
+                                        width: (constraints.maxWidth / 3.0) - 8,
+                                        height: 40.0,
+                                        color: viewingThemes[index].color,
+                                        backgroundColor: viewingThemes[index]
+                                            .backgroundColor,
+                                        isSelected:
+                                            (controller.viewingTheme.value ==
+                                                index),
+                                        onTap: () {
+                                          controller.viewingTheme.value = index;
+                                        },
+                                      ),
+                                    );
+                                  }),
+                                ),
+                              ],
+                            );
+                          }),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -420,7 +424,7 @@ final viewingThemes = [
     backgroundColor: const Color(0xFFF5F0E3),
   ),
   ViewingTheme(
-    color: Colors.grey.shade300,
+    color: Colors.grey.shade400,
     backgroundColor: Colors.grey.shade900,
   ),
 ];
