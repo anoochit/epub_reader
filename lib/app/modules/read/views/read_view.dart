@@ -62,19 +62,23 @@ class ReadView extends GetView<ReadController> {
 
               // settings
               Positioned(
+                top: 0,
                 right: 0,
                 child: AnimatedOpacity(
                   opacity: (controller.showSettings.value) ? 1.0 : 0.0,
-                  duration: const Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 350),
                   child: Container(
                     width: 220,
                     height: 244,
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.primaryContainer,
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(12.0),
-                        bottomRight: Radius.circular(12.0),
-                      ),
+                      borderRadius: BorderRadius.circular(4.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Theme.of(context).colorScheme.primary,
+                          blurRadius: 4.0,
+                        ),
+                      ],
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -89,7 +93,7 @@ class ReadView extends GetView<ReadController> {
                               children:
                                   List.generate(listTypeFace.length, (index) {
                                 return FontButton(
-                                  text: 'ด',
+                                  text: 'ป',
                                   style: listTypeFace[index].style,
                                   label: listTypeFace[index].label,
                                   isSelected:
@@ -267,7 +271,10 @@ class ViewingThemeButton extends StatelessWidget {
           ),
           child: Visibility(
             visible: isSelected,
-            child: const Icon(Icons.check),
+            child: Icon(
+              Icons.check,
+              color: color,
+            ),
           ),
         ),
       ),
